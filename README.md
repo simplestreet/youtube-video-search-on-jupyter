@@ -35,9 +35,9 @@ dtv = DisplayYoutubeVideo(yvs)
 
 |method|description|
 | --- | --- |
-|setAutoPlay( isAutoPlay : bool )| If isAutoPlay is True, video will start automatically without any clicks. Default is False. |
-|setReplay( isReplay : bool )| If isReplay is True, a video will restart after it finishes. Default is False. |
-|setStart( start : int )| If start is set, a video will start from the start time. |
-|setEnd( end : int )| If end is set, a video will end at the end time. |
-|play( playlist=[], multi=False )| This plays all movies you searched with YoutubeVideoSearch.search(). If you want to play 0th and 3th movie, please set playliset=[0,3]. If multi is True, movies are played simultaneously.If it's False, they are played one by one. |
-|playFavorite( playlist=[], multi=False )| This plays all movies you appneded with YoutubeVideoSearch.appendFavorite(). Argument is the same as `play`.|
+|setAutoPlay <br> ( isAutoPlay : bool )| If isAutoPlay is True, video will start automatically without any clicks. Default is False. |
+|setReplay <br> ( isReplay : bool )| If isReplay is True, a video will restart after it finishes. Default is False. |
+|setStart <br> ( start : int )| If start is set, a video will start from the start time. |
+|setEnd <br> ( end : int )| If end is set, a video will end at the end time. |
+|play <br> ( playlist=[], multi=False )| This plays all movies you searched with YoutubeVideoSearch.search(). If you want to play 0th and 3th movie, please set playliset=[0,3]. If multi is True, movies are played simultaneously.If it's False, they are played one by one. |
+|playFavorite <br> ( playlist=[], multi=False )| This plays all movies you appneded with YoutubeVideoSearch.appendFavorite(). Argument is the same as `play`.|
