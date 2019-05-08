@@ -1,23 +1,18 @@
 #!/usr/bin/python
 
-#from oauth2client.tools import argparser
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from IPython.display import YouTubeVideo,Image
 
-# Set DEVELOPER_KEY to the API key value from the APIs & auth > Registered apps
-# tab of
-#   https://cloud.google.com/console
-# Please ensure that you have enabled the YouTube Data API for your project.
-
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-class YoutubeSearchVideo:
+class YoutubeVideoSearch:
     __searchResults = {}
     __searchResultList = []
     __nextPageToken=''
     __currentOptions={}
+    __favorites=[]
 
     def __init__(self, key):
         if not key:
@@ -25,18 +20,37 @@ class YoutubeSearchVideo:
         self.__youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
             developerKey=key)
 
+    def appendFavorite(self, index):
+        self.__favorites.append(self.__searchResultList[index])
+
+    def deleteFavorite(self, index):
+        del self.__favorites[index]
+
+    def showFavorite(self):
+        self.showResults(favorite=True)
+
+    def clearFavorite(self):
+        self.__favorites.clear()
+
+    def getFavorite(self):
+        return self.__favorites
+
     def getSearchResultList(self):
         return self.__searchResultList
 
     def getSearchCount(self):
         print(len(self.__searchResultList))
-    def showResults(self):
+
+    def showResults(self,favorite=False):
         if not self.__searchResultList:
             print('search result is empty')
             return
-        
+        if not favorite:
+            search_results = self.__searchResultList
+        else:
+            search_results = self.__favorites
         i = 0
-        for search_result in self.__searchResultList:
+        for search_result in search_results:
             print('[%d]' % i)
             print('videoId : %s' % search_result["videoId"])
             print('channelId : %s' % search_result["channelId"])
@@ -66,7 +80,7 @@ class YoutubeSearchVideo:
     def search(self,options):
         defaultSearchType = {
                                'part' : 'id,snippet',
-                               'type' : 'video',
+                               'type' : 'video'
         }
         if type(options) is str:
             options = {'q': options}
@@ -103,8 +117,8 @@ class YoutubeSearchVideo:
 class DisplayYoutubeVideo:
 
     def __init__(self, obj):
-        if type(obj) is not YoutubeSearchVideo:
-            raise ValueError("DisplayYoutubeVideo needs YoutubeSearchVideo instance!!")
+        if type(obj) is not YoutubeVideoSearch:
+            raise ValueError("DisplayYoutubeVideo needs YoutubeVideoSearch instance!!")
         self.refreshConfig()
         self.__youtube = obj
         self.__start = 0
@@ -138,15 +152,24 @@ class DisplayYoutubeVideo:
             raise ValueError("setEnd argument must be int type !!")
         self.__end = end
 
-    def play(self, playlist=[], multi=False):
+    def playFavorite(self, playlist=[], multi=False):
+        self.play(playlist=playlist, multi=multi, favorite=True)
+
+    def play(self, playlist=[], multi=False, favorite=False):
         vids = []
-        for search_result in self.__youtube.getSearchResultList():
+        if not favorite:
+            search_results = self.__youtube.getSearchResultList()
+        else:
+            search_results = self.__youtube.getFavorite()
+
+        for search_result in search_results:
             vids.append("%s" % (search_result["videoId"]))
         if playlist != []:
             if len(vids) > max(playlist):
                 vids = [vids[i] for i in playlist]
             else:
                 raise IndexError("playlist argument is not correct")
+        
         if multi == False and len(vids) >= 2:
             tvid=YouTubeVideo(vids[0],
                         autoplay=1 if self.__isAutoPlay == True else 0 ,
