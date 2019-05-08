@@ -22,8 +22,10 @@ There are two classes to use this feature.
 
 ### DisplayYoutubeVideo
 
-*DisplayYoutubeVideo constructer needs YoutubeVideoSearch object.*
+*DisplayYoutubeVideo constructer needs YoutubeVideoSearch object.* 
+
 e.g.)
+
 ```
 yvs = YoutubeVideoSearch(key)
 yvs.search('test')
