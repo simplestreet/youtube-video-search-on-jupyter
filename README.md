@@ -2,7 +2,7 @@
 This makes you use video search feture of Youtube Data API(v3) very easily on Jupyter notebook.
 
 ## Required
-Python >= 3.4
+Python >= 3.4  
 Jupyter notebook >= 5
 
 ## Prerequisites 
