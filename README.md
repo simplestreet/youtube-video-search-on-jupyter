@@ -52,7 +52,7 @@ else:
 |method|argument|description|e.g.|
 | --- | --- | --- | --- |
 |search| <p>options : str or dictionary</p><p> dictionary can be specified "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'Ariana Grande', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
-|showResults| - | show the result of your searche. ||
+|showResults| - | show the result of your search. ||
 |getSearchCount| - | show the number of the result. ||
 |next| - | get the next page of the result. ||
 |appendFavorite| index : int | store element specified by index. ||
