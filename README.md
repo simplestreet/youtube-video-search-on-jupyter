@@ -1,5 +1,5 @@
 # youtube-video-search-on-jupyter
-This makes you use video search feture of Youtube Data API(v3) very easily on Jupyter notebook.  
+This makes you use video search feature of Youtube Data API(v3) very easily on Jupyter notebook.  
   
 ![image](https://github.com/simplestreet/youtube-video-search-on-jupyter/blob/master/image/top.gif)
 
