@@ -32,8 +32,8 @@ There are two classes to use this feature.
 |showResults| - | show the result of your searche. ||
 |getSearchCount| - | show the number of the result. ||
 |next| - | get the next page of the result. ||
-|appendFavorite| index:int | store element specified by index. ||
-|deleteFavorite| index:int | delete the element you appended by index. ||
+|appendFavorite| index : int | store element specified by index. ||
+|deleteFavorite| index : int | delete the element you appended by index. ||
 |showFavorite| - | show all elements you appended. ||
 |clearFavorite| - | clear all elements you appended. ||
 
