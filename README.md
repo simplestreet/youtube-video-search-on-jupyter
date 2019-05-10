@@ -20,15 +20,27 @@ There are two classes to use this feature.
 
 ### YoutubeVideoSearch
 
-*YoutubeVideoSearch needs search words or search options.* 
+*YoutubeVideoSearch needs API key.* 
+
+e.g.)
 
 ```
+API_KEY = "Repalace_With_Your_Api_Key"
 
+yvs = YoutubeVideoSearch(API_KEY)
+
+try:
+    yvs.search('mob psycho 2')
+except HttpError as e:
+    print ("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
+    raise e
+else:
+    print('Search succeded!')
 ```
 
 |method|argument|description|e.g.|
 | --- | --- | --- | --- |
-|search| <p>options : str or dictionary</p><p> dictionary can specify "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'Ariana Grande', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
+|search| <p>options : str or dictionary</p><p> dictionary can be specified "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'Ariana Grande', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
 |showResults| - | show the result of your searche. ||
 |getSearchCount| - | show the number of the result. ||
 |next| - | get the next page of the result. ||
