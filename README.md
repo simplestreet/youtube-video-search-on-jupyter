@@ -15,6 +15,15 @@ To get the key, please read [this manual](https://developers.google.com/youtube/
 ```
 !pip install --upgrade google-api-python-client
 ```
+
+## How to import
+
+On jupyter notebook, import youtube-video-search.py file with `run` command.
+
+```
+%run D:\\source\\youtube-video-search-on-jupyter\\youtube-video-search.py
+```
+
 ## Specification of class
 There are two classes to use this feature.
 
