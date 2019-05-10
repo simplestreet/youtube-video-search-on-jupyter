@@ -20,9 +20,28 @@ There are two classes to use this feature.
 
 ### YoutubeVideoSearch
 
+*YoutubeVideoSearch needs search words or search options.* 
+
+```
+
+```
+
+|method|argument|description|e.g.|
+| --- | --- | --- | --- |
+|search| <p>options : str or dictionary</p><p> dictionary can specify "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'Ariana Grande', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
+|showResults| - | show the result of your searche. ||
+|getSearchCount| - | show the number of the result. ||
+|next| - | get the next page of the result. ||
+|appendFavorite| index:int | store element specified by index. ||
+|deleteFavorite| index:int | delete the element you appended by index. ||
+|showFavorite| - | show all elements you appended. ||
+|clearFavorite| - | clear all elements you appended. ||
+
+<p>(*1 Please see `Search:list parameter` of YouTube Data API (v3) document.</p>
+
 ### DisplayYoutubeVideo
 
-*DisplayYoutubeVideo constructer needs YoutubeVideoSearch object.* 
+*DisplayYoutubeVideo needs YoutubeVideoSearch object.* 
 
 e.g.)
 
