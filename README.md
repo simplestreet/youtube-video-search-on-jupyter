@@ -1,5 +1,5 @@
 # youtube-video-search-on-jupyter
-This makes you use video search feture of Youtube Data API(v3) very easily on Jupyter notebook.  
+This makes you use video search feature of Youtube Data API(v3) very easily on Jupyter notebook.  
   
 ![image](https://github.com/simplestreet/youtube-video-search-on-jupyter/blob/master/image/top.gif)
 
@@ -29,9 +29,10 @@ On jupyter notebook, import youtube-video-search.py file with `run` command.
 ## Specification of class
 There are two classes to use this feature.
 
-### YoutubeVideoSearch
+### YoutubeVideoSearch(key)
 
-*YoutubeVideoSearch needs API key.* 
+You can request search method of youtube data api(v3) with this class.  
+This needs API key.  
 
 e.g.)
 
@@ -52,7 +53,7 @@ else:
 |method|argument|description|e.g.|
 | --- | --- | --- | --- |
 |search| <p>options : str or dictionary</p><p> dictionary can be specified "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'Ariana Grande', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
-|showResults| - | show the result of your searche. ||
+|showResults| - | show the result of your search. ||
 |getSearchCount| - | show the number of the result. ||
 |next| - | get the next page of the result. ||
 |appendFavorite| index : int | store element specified by index. ||
@@ -60,17 +61,18 @@ else:
 |showFavorite| - | show all elements you appended. ||
 |clearFavorite| - | clear all elements you appended. ||
 
-<p>(*1 Please see `Search:list parameter` of YouTube Data API (v3) document.</p>
+(*1 Please see [`Search:list parameter of YouTube Data API (v3)`](https://developers.google.com/youtube/v3/docs/search/list#request) document.
 
-### DisplayYoutubeVideo
+### DisplayYoutubeVideo(obj)
 
-*DisplayYoutubeVideo needs YoutubeVideoSearch object.* 
+You can show youtube video you searched with this class.  
+This needs YoutubeVideoSearch object as argument.  
 
 e.g.)
 
 ```
 yvs = YoutubeVideoSearch(key)
-yvs.search('test')
+yvs.search('mob psycho 2')
 
 dtv = DisplayYoutubeVideo(yvs)
 ```
@@ -81,5 +83,6 @@ dtv = DisplayYoutubeVideo(yvs)
 |setReplay| isReplay : bool | If isReplay is True, a video will restart after it finishes. Default is False. |
 |setStart| start : int | If start is set, a video will start from the start time. |
 |setEnd| end : int | If end is set, a video will end at the end time. |
+|refreshConfig| - | Refresh all configuration.
 |play| playlist=[], multi=False | This plays all movies you searched with YoutubeVideoSearch.search(). If you want to play 0th and 3th movie, please set playliset=[0,3]. If multi is True, movies are played simultaneously.If it's False, they are played one by one. |
 |playFavorite| playlist=[], multi=False | This plays all movies you appneded with YoutubeVideoSearch.appendFavorite(). Argument is the same as `play`.|
