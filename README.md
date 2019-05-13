@@ -25,13 +25,15 @@ On jupyter notebook, import youtube-video-search.py file with `run` command.
 ```
 %run D:\\source\\youtube-video-search-on-jupyter\\youtube-video-search.py
 ```
+## Sample
+[sample](/sample)
 
 ## Specification of class
 There are two classes to use this feature.
 
 ### YoutubeVideoSearch(key)
 
-You can request search method of youtube data api(v3) with this class.  
+You can request a search method of youtube data api(v3) with this class.  
 This needs API key.  
 
 e.g.)
@@ -42,7 +44,7 @@ API_KEY = "Repalace_With_Your_Api_Key"
 yvs = YoutubeVideoSearch(API_KEY)
 
 try:
-    yvs.search('mob psycho 2')
+    yvs.search('nintendo official')
 except HttpError as e:
     print ("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
     raise e
@@ -52,7 +54,7 @@ else:
 
 |method|argument|description|e.g.|
 | --- | --- | --- | --- |
-|search| <p>options : str or dictionary</p><p> dictionary can be specified "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'Ariana Grande', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
+|search| <p>options : str or dictionary</p><p> dictionary can be specified "q, maxResults, order"</p><p>(*1</p> | search videos with options. | search('Ariana Grande') 　<br> search( { <br>  'q' : 'nintendo official', <br>  'maxResults' : '3', <br>  'order' : 'viewCount' <br>} )|
 |showResults| - | show the result of your search. ||
 |getSearchCount| - | show the number of the result. ||
 |next| - | get the next page of the result. ||
@@ -65,14 +67,14 @@ else:
 
 ### DisplayYoutubeVideo(obj)
 
-You can show youtube video you searched with this class.  
+You can show the youtube videos you searched with this class.  
 This needs YoutubeVideoSearch object as argument.  
 
 e.g.)
 
 ```
 yvs = YoutubeVideoSearch(key)
-yvs.search('mob psycho 2')
+yvs.search('nintendo official')
 
 dtv = DisplayYoutubeVideo(yvs)
 ```
