@@ -61,7 +61,7 @@ else:
 |showFavorite| - | show all elements you appended. ||
 |clearFavorite| - | clear all elements you appended. ||
 
-<p>(*1 Please see `Search:list parameter` of YouTube Data API (v3) document.</p>
+<p>(*1 Please see [`Search:list parameter` of YouTube Data API (v3)](https://developers.google.com/youtube/v3/docs/search/list#request) document.</p>
 
 ### DisplayYoutubeVideo(obj)
 
