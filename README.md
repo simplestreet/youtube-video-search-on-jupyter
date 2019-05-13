@@ -29,9 +29,10 @@ On jupyter notebook, import youtube-video-search.py file with `run` command.
 ## Specification of class
 There are two classes to use this feature.
 
-### YoutubeVideoSearch
+### YoutubeVideoSearch(key)
 
-*YoutubeVideoSearch needs API key.* 
+You can request search method of youtube data api(v3) with this class.  
+This needs API key.  
 
 e.g.)
 
@@ -62,15 +63,16 @@ else:
 
 <p>(*1 Please see `Search:list parameter` of YouTube Data API (v3) document.</p>
 
-### DisplayYoutubeVideo
+### DisplayYoutubeVideo(obj)
 
-*DisplayYoutubeVideo needs YoutubeVideoSearch object.* 
+You can show youtube video you searched with this class.  
+This needs YoutubeVideoSearch object as argument.  
 
 e.g.)
 
 ```
 yvs = YoutubeVideoSearch(key)
-yvs.search('test')
+yvs.search('mob psycho 2')
 
 dtv = DisplayYoutubeVideo(yvs)
 ```
