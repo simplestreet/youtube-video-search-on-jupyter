@@ -26,7 +26,7 @@ On jupyter notebook, import youtube-video-search.py file with `run` command.
 %run D:\\source\\youtube-video-search-on-jupyter\\youtube-video-search.py
 ```
 ## Sample
-[sample](/sample)
+Please see [sample](/sample) about usage.
 
 ## Specification of class
 There are two classes to use this feature.
