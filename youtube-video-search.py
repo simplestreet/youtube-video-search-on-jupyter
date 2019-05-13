@@ -74,7 +74,6 @@ class YoutubeVideoSearch:
     def next(self):
         options = self.__currentOptions
         options.update({'pageToken' : self.__nextPageToken})
-        print(options)
         self.search(options)
 
     def search(self,options):
